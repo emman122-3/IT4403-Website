@@ -1,0 +1,942 @@
+/* =========================================
+   IT 4403 COURSE WEBSITE
+   Modern Responsive Design
+   ========================================= */
+
+
+/* ---------- Base ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+    background: #f5f7fa;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ---------- Header ---------- */
+
+.site-header {
+    background: #071a33;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.navbar {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 18px 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4b400;
+    color: #071a33;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    border-radius: 10px;
+}
+
+.brand strong {
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
+.brand small {
+    display: block;
+    color: #b9c5d6;
+    font-size: 11px;
+    margin-top: 1px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    padding: 10px 15px;
+    border-radius: 7px;
+
+    color: #dce4ef;
+    font-size: 14px;
+    font-weight: 600;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255,255,255,0.11);
+    color: #ffffff;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero {
+    background: #071a33;
+    color: white;
+
+    min-height: 590px;
+
+    padding: 75px max(28px, calc((100% - 1184px) / 2));
+
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    align-items: center;
+    gap: 70px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+
+    right: -180px;
+    top: -130px;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(244,180,0,0.12);
+    border-radius: 50%;
+
+    right: -80px;
+    bottom: -190px;
+}
+
+.hero-content,
+.hero-panel {
+    position: relative;
+    z-index: 1;
+}
+
+.university-badge {
+    display: inline-block;
+
+    padding: 7px 13px;
+
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 30px;
+
+    color: #dbe4ef;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 22px;
+}
+
+.course-code {
+    color: #f4b400;
+
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    max-width: 780px;
+
+    font-size: clamp(42px, 6vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -2.5px;
+
+    margin-bottom: 25px;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color: #c4cfdd;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    padding: 13px 20px;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: #f4b400;
+    color: #071a33;
+}
+
+.btn-primary:hover {
+    background: #ffc52c;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.28);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+
+/* ---------- Hero Panel ---------- */
+
+.hero-panel {
+    min-height: 350px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.12),
+            rgba(255,255,255,0.035)
+        );
+
+    border: 1px solid rgba(255,255,255,0.13);
+
+    border-radius: 18px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.18);
+}
+
+.panel-top {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: #aebbc9;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #f4b400;
+    border-radius: 50%;
+}
+
+.panel-content {
+    margin-top: 65px;
+}
+
+.panel-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f4b400;
+    color: #071a33;
+
+    border-radius: 12px;
+
+    font-weight: 900;
+
+    margin-bottom: 25px;
+}
+
+.panel-content h2 {
+    font-size: 34px;
+    line-height: 1.05;
+    letter-spacing: -1px;
+}
+
+.panel-content p {
+    color: #b9c5d6;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin-top: 22px;
+}
+
+
+/* ---------- Sections ---------- */
+
+.section-container {
+    max-width: 1184px;
+    margin: 0 auto;
+    padding-left: 28px;
+    padding-right: 28px;
+}
+
+.intro {
+    padding-top: 100px;
+    padding-bottom: 85px;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+}
+
+.section-tag {
+    color: #1d5d9b;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+}
+
+.section-heading h2,
+.workspace-header h2 {
+    color: #101b2d;
+
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+
+    margin-top: 13px;
+}
+
+.intro-text {
+    padding-top: 23px;
+}
+
+.intro-text p {
+    color: #596678;
+
+    font-size: 16px;
+    line-height: 1.85;
+
+    margin-bottom: 18px;
+}
+
+
+/* ---------- Workspace ---------- */
+
+.workspace {
+    padding-bottom: 100px;
+}
+
+.workspace-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 50px;
+
+    margin-bottom: 35px;
+}
+
+.workspace-header > p {
+    max-width: 350px;
+
+    color: #697687;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.course-card {
+    min-height: 365px;
+
+    padding: 28px;
+
+    background: white;
+
+    border: 1px solid #e1e6ed;
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(20,35,55,0.04);
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #bfcbd9;
+
+    box-shadow: 0 20px 45px rgba(20,35,55,0.10);
+}
+
+.course-card.featured {
+    background: #071a33;
+    color: white;
+    border-color: #071a33;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-number {
+    color: #8190a2;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.featured .card-number {
+    color: #94a7bb;
+}
+
+.arrow {
+    color: #607084;
+    font-size: 20px;
+}
+
+.featured .arrow {
+    color: #f4b400;
+}
+
+.card-icon {
+    width: 54px;
+    height: 54px;
+
+    margin-top: 35px;
+    margin-bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf3f9;
+    color: #1d5d9b;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.featured .card-icon {
+    background: rgba(244,180,0,0.15);
+    color: #f4b400;
+}
+
+.course-card h3 {
+    font-size: 24px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.course-card p {
+    color: #687586;
+
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.featured p {
+    color: #b8c5d4;
+}
+
+.card-link {
+    margin-top: auto;
+    padding-top: 25px;
+
+    color: #1d5d9b;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.featured .card-link {
+    color: #f4b400;
+}
+
+.card-link span {
+    margin-left: 5px;
+}
+
+
+/* ---------- Department ---------- */
+
+.department {
+    min-height: 320px;
+
+    margin-bottom: 80px;
+
+    padding-top: 60px;
+    padding-bottom: 60px;
+
+    padding-left: 55px;
+    padding-right: 55px;
+
+    background: #0c2b4d;
+    color: white;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+
+    overflow: hidden;
+    position: relative;
+}
+
+.department::before {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50%;
+
+    right: 80px;
+    top: -150px;
+}
+
+.light-tag {
+    color: #f4b400;
+}
+
+.department-content {
+    position: relative;
+    z-index: 1;
+}
+
+.department h2 {
+    max-width: 700px;
+
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+
+    margin-top: 12px;
+}
+
+.department-content p {
+    color: #b9c7d7;
+
+    margin-top: 12px;
+}
+
+.department-link {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+
+    margin-top: 28px;
+
+    color: #f4b400;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.department-mark {
+    width: 130px;
+    height: 130px;
+
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 1;
+}
+
+.department-mark span {
+    font-size: 28px;
+    font-weight: 900;
+}
+
+.department-mark small {
+    color: #f4b400;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+
+/* ---------- Disclaimer ---------- */
+
+.disclaimer {
+    margin-bottom: 85px;
+
+    padding: 24px 28px;
+
+    background: white;
+
+    border: 1px solid #e1e6ed;
+    border-radius: 12px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.disclaimer-icon {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf1f8;
+    color: #1d5d9b;
+
+    border-radius: 50%;
+
+    font-weight: 800;
+}
+
+.disclaimer h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.disclaimer p {
+    color: #687586;
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background: #071a33;
+    color: white;
+
+    padding: 45px max(28px, calc((100% - 1184px) / 2)) 25px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    padding-bottom: 35px;
+}
+
+.footer-inner strong {
+    font-size: 18px;
+}
+
+.footer-inner p {
+    color: #aebccc;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.footer-right {
+    text-align: right;
+}
+
+.footer-bottom {
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #7f91a5;
+
+    font-size: 11px;
+}
+
+
+/* ---------- Responsive Tablet ---------- */
+
+@media (max-width: 900px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 65px;
+        padding-bottom: 65px;
+    }
+
+    .hero-panel {
+        max-width: 520px;
+    }
+
+    .intro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .course-card {
+        min-height: 300px;
+    }
+
+    .department {
+        margin-left: 28px;
+        margin-right: 28px;
+    }
+}
+
+
+/* ---------- Responsive Mobile ---------- */
+
+@media (max-width: 650px) {
+
+    .navbar {
+        padding: 15px 18px;
+
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 3px;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+        font-size: 12px;
+        padding: 8px 11px;
+    }
+
+    .hero {
+        min-height: auto;
+
+        padding: 55px 20px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+        letter-spacing: -1.8px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .hero-panel {
+        min-height: 300px;
+    }
+
+    .panel-content {
+        margin-top: 45px;
+    }
+
+    .panel-content h2 {
+        font-size: 29px;
+    }
+
+    .section-container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .intro {
+        padding-top: 70px;
+        padding-bottom: 65px;
+    }
+
+    .workspace {
+        padding-bottom: 70px;
+    }
+
+    .workspace-header {
+        display: block;
+    }
+
+    .workspace-header > p {
+        margin-top: 18px;
+    }
+
+    .course-card {
+        min-height: 330px;
+        padding: 24px;
+    }
+
+    .department {
+        margin-left: 20px;
+        margin-right: 20px;
+
+        padding: 40px 25px;
+
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .department-mark {
+        width: 90px;
+        height: 90px;
+    }
+
+    .department-mark span {
+        font-size: 21px;
+    }
+
+    .disclaimer {
+        margin-top: 0;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+
+    .footer-right {
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+
+}
+
+
+/* ---------- Accessibility ---------- */
+
+a:focus-visible {
+    outline: 3px solid #f4b400;
+    outline-offset: 3px;
+}
+
+button:focus-visible {
+    outline: 3px solid #f4b400;
+    outline-offset: 3px;
+}
+
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
