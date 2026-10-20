@@ -4,326 +4,465 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-          content="IT 4403 Advanced Web and Mobile Applications student course website at Kennesaw State University">
+    <title>IT 4403 - Open Library Project</title>
 
-    <title>IT 4403 | Advanced Web & Mobile Applications</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #243447;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            margin: 0 0 12px;
+            font-size: 36px;
+        }
+
+        header p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        nav {
+            background-color: #1b2838;
+            text-align: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 18px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+        .welcome {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .welcome h2 {
+            margin-top: 0;
+            color: #243447;
+        }
+
+        .section {
+            background-color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .section h2 {
+            color: #243447;
+            border-bottom: 2px solid #243447;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .lab-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .lab-list li {
+            margin: 12px 0;
+        }
+
+        .lab-list a {
+            color: #1769aa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .lab-list a:hover {
+            text-decoration: underline;
+        }
+
+        .milestone-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .milestone-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px;
+            background-color: #fafafa;
+        }
+
+        .milestone-card h3 {
+            color: #243447;
+            margin-top: 0;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #243447;
+            color: white;
+            padding: 11px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background-color: #1769aa;
+        }
+
+        .course-link {
+            color: #1769aa;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #243447;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav a {
+                display: block;
+                margin: 9px 0;
+            }
+
+            main {
+                padding: 0 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <header class="site-header">
-        <nav class="navbar">
+    <!-- HEADER -->
+    <header>
 
-            <a href="index.html" class="brand">
-                <span class="brand-mark">IT</span>
-                <span>
-                    <strong>IT 4403</strong>
-                    <small>Course Workspace</small>
-                </span>
-            </a>
+        <h1>IT 4403 - Open Library Project</h1>
 
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="exercises.html">Exercises</a>
-                <a href="labs.html">Labs</a>
-                <a href="projects.html">Projects</a>
-            </div>
+        <p>Milestones 1 and 2: Open Library JSON Data and Live API</p>
 
-        </nav>
+        <p><strong>Emmanuel Osime</strong></p>
+
     </header>
 
 
-    <!-- Hero Section -->
+    <!-- NAVIGATION -->
+    <nav>
+
+        <a href="index.html">Home</a>
+
+        <a href="book.html">Single Book</a>
+
+        <a href="search.html">Search Results</a>
+
+            <a href="milestone2/index.html">Milestone 2</a>
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
     <main>
 
-        <section class="hero">
+        <!-- PROJECT INTRODUCTION -->
+        <section class="welcome">
 
-            <div class="hero-content">
+            <h2>Project Homepage</h2>
 
-                <div class="university-badge">
-                    KENNESAW STATE UNIVERSITY
-                </div>
+            <p>
+                Welcome to my IT 4403 Open Library project. This project
+                demonstrates the use of JSON data, jQuery, JavaScript,
+                HTML, and embedded CSS to create webpages that display
+                information retrieved from Open Library data.
+            </p>
 
-                <p class="course-code">IT 4403</p>
+            <p>
+                Milestone 1 focuses on working with two supplied JSON
+                files. The first file contains information about a
+                single book, while the second file contains multiple
+                search results for the search phrase "modern web".
+            </p>
 
-                <h1>
-                    Advanced Web &<br>
-                    Mobile Applications
-                </h1>
-
-                <p class="hero-description">
-                    A dedicated course workspace for organizing practical
-                    exercises, laboratory activities, and application
-                    development projects.
-                </p>
-
-                <div class="hero-actions">
-                    <a href="labs.html" class="btn btn-primary">
-                        Explore Labs
-                        <span>→</span>
-                    </a>
-
-                    <a href="projects.html" class="btn btn-outline">
-                        View Projects
-                    </a>
-                </div>
-
-            </div>
-
-
-            <div class="hero-panel">
-
-                <div class="panel-top">
-                    <span class="status-dot"></span>
-                    <span>COURSE PORTAL</span>
-                </div>
-
-                <div class="panel-content">
-
-                    <div class="panel-icon">01</div>
-
-                    <h2>Learn.</h2>
-                    <h2>Build.</h2>
-                    <h2>Apply.</h2>
-
-                    <p>
-                        Practical coursework focused on modern web and
-                        mobile application development.
-                    </p>
-
-                </div>
-
-            </div>
+            <p>
+                The project demonstrates how webpages can read structured
+                JSON data, process arrays and nested objects, handle
+                missing information, display book covers, and create
+                links to Open Library records.
+            </p>
 
         </section>
 
 
-        <!-- Course Introduction -->
-        <section class="intro section-container">
-
-            <div class="section-heading">
-
-                <span class="section-tag">ABOUT THE COURSE</span>
-
-                <h2>
-                    Your IT 4403<br>
-                    learning space.
-                </h2>
-
-            </div>
-
-            <div class="intro-text">
-
-                <p>
-                    This website provides a central location for coursework
-                    completed as part of <strong>IT 4403 – Advanced Web and
-                    Mobile Applications</strong>.
-                </p>
-
-                <p>
-                    Use the navigation below to access exercises, laboratory
-                    activities, and course projects as they are developed
-                    throughout the course.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- Main Course Cards -->
-        <section class="workspace section-container">
-
-            <div class="workspace-header">
-
-                <div>
-                    <span class="section-tag">COURSE WORKSPACE</span>
-
-                    <h2>
-                        Explore the coursework
-                    </h2>
+        <section class="section" id="milestone2">
+            <h2>Individual Project — Milestone 2</h2>
+            <p>Milestone 2 continues the Open Library project using live API data. Search for books, browse up to 60 results using the page dropdown, and select a title to view its details.</p>
+            <div class="milestone-container">
+                <div class="milestone-card">
+                    <h3>Live Book Search and Details</h3>
+                    <p>Search by title, author, or keyword. View book covers and open a details page with a description, up to ten subjects, the Work ID, and an Open Library link.</p>
+                    <a class="button" href="milestone2/index.html">Open Milestone 2</a>
                 </div>
-
-                <p>
-                    Select an area to view the corresponding course
-                    activities and resources.
-                </p>
-
+                <div class="milestone-card">
+                    <h3>My Bookshelf</h3>
+                    <p>Explore four selected books loaded directly from Open Library. Select a title to view its detailed information.</p>
+                    <a class="button" href="milestone2/bookshelf.html">View My Bookshelf</a>
+                </div>
             </div>
-
-
-            <div class="course-grid">
-
-                <!-- Exercises -->
-                <a href="exercises.html" class="course-card">
-
-                    <div class="card-top">
-                        <span class="card-number">01</span>
-                        <span class="arrow">↗</span>
-                    </div>
-
-                    <div class="card-icon">
-                        ✦
-                    </div>
-
-                    <h3>Exercises</h3>
-
-                    <p>
-                        Practice activities designed to strengthen concepts
-                        and practical skills in web and mobile application
-                        development.
-                    </p>
-
-                    <span class="card-link">
-                        View Exercises
-                        <span>→</span>
-                    </span>
-
-                </a>
-
-
-                <!-- Labs -->
-                <a href="labs.html" class="course-card featured">
-
-                    <div class="card-top">
-                        <span class="card-number">02</span>
-                        <span class="arrow">↗</span>
-                    </div>
-
-                    <div class="card-icon">
-                        ◈
-                    </div>
-
-                    <h3>Laboratories</h3>
-
-                    <p>
-                        Hands-on laboratory activities that demonstrate
-                        practical implementation of course concepts.
-                    </p>
-
-                    <span class="card-link">
-                        View Labs
-                        <span>→</span>
-                    </span>
-
-                </a>
-
-
-                <!-- Projects -->
-                <a href="projects.html" class="course-card">
-
-                    <div class="card-top">
-                        <span class="card-number">03</span>
-                        <span class="arrow">↗</span>
-                    </div>
-
-                    <div class="card-icon">
-                        ◆
-                    </div>
-
-                    <h3>Projects</h3>
-
-                    <p>
-                        Application projects that bring together skills and
-                        knowledge developed throughout the course.
-                    </p>
-
-                    <span class="card-link">
-                        View Projects
-                        <span>→</span>
-                    </span>
-
-                </a>
-
-            </div>
-
         </section>
 
+        <!-- COURSE INFORMATION -->
+        <section class="section">
 
-        <!-- Department Section -->
-        <section class="department section-container">
+            <h2>Course Information</h2>
 
-            <div class="department-content">
+            <p>
+                <strong>Course:</strong> IT 4403
+            </p>
 
-                <span class="section-tag light-tag">
-                    ACADEMIC AFFILIATION
-                </span>
+            <p>
+                <strong>Project:</strong> Open Library Milestones 1 and 2
+            </p>
 
-                <h2>
-                    College of Computing and Software Engineering
-                </h2>
+            <p>
+                <strong>Student:</strong> Emmanuel Osime
+            </p>
 
-                <p>
-                    Department of Information Technology
-                </p>
+            <p>
+                <strong>University:</strong> Kennesaw State University
+            </p>
 
+            <p>
+                <strong>School:</strong> College of Computing and Software Engineering
+            </p>
+
+            <p>
+                <strong>Technology:</strong> HTML, CSS, JavaScript, jQuery and JSON
+            </p>
+
+            <p>
+                <strong>CCSE IT Website:</strong>
                 <a
+                    class="course-link"
                     href="https://ccse.kennesaw.edu/it/"
                     target="_blank"
-                    rel="noopener noreferrer"
-                    class="department-link"
-                >
-                    Visit Department of IT
-                    <span>↗</span>
+                    rel="noopener">
+                    KSU Information Technology
                 </a>
+            </p>
 
-            </div>
+        </section>
 
-            <div class="department-mark">
-                <span>KSU</span>
-                <small>IT</small>
+
+        <!-- LAB WORK -->
+        <section class="section">
+
+            <h2>Lab Work</h2>
+
+            <p>
+                This section provides links to previous laboratory
+                assignments completed for the IT 4403 course.
+            </p>
+
+            <ul class="lab-list">
+
+                <li>
+                    Previous Lab Work
+                </li>
+
+                <li>
+                    Previous Lab 1
+                </li>
+
+                <li>
+                    Previous Lab 2
+                </li>
+
+                <li>
+                    Previous Lab 3
+                </li>
+
+            </ul>
+
+            <p>
+                Additional laboratory links can be added as the project
+                develops.
+            </p>
+
+        </section>
+
+
+        <!-- MILESTONE -->
+        <section class="section">
+
+            <h2>Individual Project — Milestone 1</h2>
+
+            <p>
+                Milestone 1 demonstrates how Open Library JSON data can
+                be processed and presented through webpages. The
+                milestone contains a single-book webpage and a
+                search-results webpage.
+            </p>
+
+
+            <div class="milestone-container">
+
+                <!-- SINGLE BOOK -->
+                <div class="milestone-card">
+
+                    <h3>Single Book</h3>
+
+                    <p>
+                        This webpage reads the
+                        <strong>openlibrary-book.json</strong> file and
+                        displays information about the book
+                        <em>Fantastic Mr. Fox</em>.
+                    </p>
+
+                    <p>
+                        The page displays the book title, author
+                        reference, publisher, publication date, page
+                        count, ISBNs, cover image, first sentence, and
+                        Open Library links.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="book.html">
+                        View Single Book
+                    </a>
+
+                </div>
+
+
+                <!-- SEARCH RESULTS -->
+                <div class="milestone-card">
+
+                    <h3>Search Results</h3>
+
+                    <p>
+                        This webpage reads the
+                        <strong>openlibrary-search.json</strong> file
+                        and loops through the <strong>docs</strong>
+                        array to display the available search records.
+                    </p>
+
+                    <p>
+                        Each book record displays information such as
+                        title, author, publication year, edition count,
+                        language, cover image, and Open Library link.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="search.html">
+                        View Search Results
+                    </a>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- Disclaimer -->
-        <section class="disclaimer section-container">
+        <section class="section">
+            <h2>Other Course Work</h2>
+            <p><a href="course-home.html">Course Website</a> &nbsp;|&nbsp; <a href="labs.html">Labs</a> &nbsp;|&nbsp; <a href="exercises.html">Exercises</a></p>
+        </section>
 
-            <div class="disclaimer-icon">
-                i
-            </div>
+        <!-- PROJECT FILES -->
+        <section class="section">
 
-            <div>
-                <h3>Academic Disclaimer</h3>
+            <h2>Project Files</h2>
 
-                <p>
-                    This is a student website created for IT 4403 –
-                    Advanced Web and Mobile Applications course projects.
-                    The content is intended for academic purposes.
-                </p>
-            </div>
+            <p>
+                The Milestone 1 project consists of the following files:
+            </p>
+
+            <ul>
+
+                <li>
+                    <strong>index.html</strong> - Project homepage
+                </li>
+
+                <li>
+                    <strong>book.html</strong> - Single-book webpage
+                </li>
+
+                <li>
+                    <strong>search.html</strong> - Search-results webpage
+                </li>
+
+                <li>
+                    <strong>openlibrary-book.json</strong> - Single-book JSON data
+                </li>
+
+                <li>
+                    <strong>openlibrary-search.json</strong> - Search-results JSON data
+                </li>
+
+            </ul>
 
         </section>
 
     </main>
 
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- FOOTER -->
+    <footer>
 
-        <div class="footer-inner">
+        <p>
+            IT 4403 - Open Library Project
+        </p>
 
-            <div>
-                <strong>IT 4403</strong>
-                <p>Advanced Web & Mobile Applications</p>
-            </div>
-
-            <div class="footer-right">
-                <p>Kennesaw State University</p>
-                <p>Course Website</p>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <span>IT 4403 • Academic Course Workspace</span>
-            <span>© Kennesaw State University</span>
-        </div>
+        <p>
+            Kennesaw State University
+        </p>
 
     </footer>
 

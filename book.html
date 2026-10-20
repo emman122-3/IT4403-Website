@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fantastic Mr. Fox - Open Library</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #243447;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1b2838;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .book-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .book-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .book-content {
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        .cover-section {
+            flex: 0 0 220px;
+            text-align: center;
+        }
+
+        .cover-section img {
+            max-width: 200px;
+            max-height: 300px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .details {
+            flex: 1;
+        }
+
+        .info-section {
+            margin-bottom: 25px;
+        }
+
+        .info-section h2 {
+            border-bottom: 2px solid #243447;
+            padding-bottom: 8px;
+            color: #243447;
+        }
+
+        .info-row {
+            margin: 10px 0;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        a {
+            color: #1769aa;
+        }
+
+        .not-available {
+            color: #777;
+            font-style: italic;
+        }
+
+        @media (max-width: 700px) {
+            .book-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .details {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Open Library Book Record</h1>
+    <p>Milestone 1 - Single Book Edition</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="book.html">Single Book</a>
+    <a href="search.html">Search Results</a>
+        <a href="milestone2/index.html">Milestone 2</a>
+    </nav>
+
+<main>
+
+    <div class="book-container">
+
+        <div class="book-header">
+            <h1 id="book-title">Loading book information...</h1>
+        </div>
+
+        <div class="book-content">
+
+            <div class="cover-section" id="cover-container">
+                <!-- Cover image will be inserted here -->
+            </div>
+
+            <div class="details">
+
+                <div class="info-section">
+                    <h2>Publication Information</h2>
+
+                    <div class="info-row">
+                        <span class="label">Author:</span>
+                        <span id="author">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Publisher:</span>
+                        <span id="publisher">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Publication Date:</span>
+                        <span id="publication-date">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Page Count:</span>
+                        <span id="pages">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Language:</span>
+                        <span id="language">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Contributor:</span>
+                        <span id="contributor">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>ISBN Information</h2>
+
+                    <div class="info-row">
+                        <span class="label">ISBN-10:</span>
+                        <span id="isbn10">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">ISBN-13:</span>
+                        <span id="isbn13">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h2>First Sentence</h2>
+                    <p id="first-sentence">Loading...</p>
+                </div>
+
+                <div class="info-section">
+                    <h2>Open Library Records</h2>
+
+                    <div class="info-row">
+                        <span class="label">Book Record:</span>
+                        <span id="book-link">Loading...</span>
+                    </div>
+
+                    <div class="info-row">
+                        <span class="label">Work Record:</span>
+                        <span id="work-link">Loading...</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+
+$(document).ready(function () {
+
+    $.getJSON("openlibrary-book.json", function (book) {
+
+        /* Book title */
+        $("#book-title").text(book.title || "Not available");
+
+        /* Author */
+        if (book.authors && book.authors.length > 0) {
+
+            let authors = [];
+
+            $.each(book.authors, function (index, author) {
+                if (author.key) {
+                    authors.push(author.key);
+                }
+            });
+
+            $("#author").text(authors.join(", ") || "Not available");
+
+        } else {
+            $("#author").text("Not available");
+        }
+
+        /* Publisher */
+        if (book.publishers && book.publishers.length > 0) {
+            $("#publisher").text(book.publishers.join(", "));
+        } else {
+            $("#publisher").text("Not available");
+        }
+
+        /* Publication date */
+        $("#publication-date").text(
+            book.publish_date || "Not available"
+        );
+
+        /* Page count */
+        $("#pages").text(
+            book.number_of_pages || "Not available"
+        );
+
+        /* Language */
+        if (book.languages && book.languages.length > 0) {
+
+            let languages = [];
+
+            $.each(book.languages, function (index, language) {
+
+                if (language.key) {
+                    languages.push(language.key.replace("/languages/", ""));
+                }
+
+            });
+
+            $("#language").text(
+                languages.join(", ") || "Not available"
+            );
+
+        } else {
+            $("#language").text("Not available");
+        }
+
+        /* Contributor */
+        if (book.contributions && book.contributions.length > 0) {
+            $("#contributor").text(
+                book.contributions.join(", ")
+            );
+        } else {
+            $("#contributor").text("Not available");
+        }
+
+        /* ISBN-10 */
+        if (book.isbn_10 && book.isbn_10.length > 0) {
+            $("#isbn10").text(book.isbn_10.join(", "));
+        } else {
+            $("#isbn10").text("Not available");
+        }
+
+        /* ISBN-13 */
+        if (book.isbn_13 && book.isbn_13.length > 0) {
+            $("#isbn13").text(book.isbn_13.join(", "));
+        } else {
+            $("#isbn13").text("Not available");
+        }
+
+        /* First sentence */
+        if (book.first_sentence && book.first_sentence.value) {
+            $("#first-sentence").text(
+                book.first_sentence.value
+            );
+        } else {
+            $("#first-sentence").text("Not available");
+        }
+
+        /* Cover image */
+        if (book.covers && book.covers.length > 0) {
+
+            let coverID = null;
+
+            $.each(book.covers, function (index, cover) {
+
+                if (cover > 0 && coverID === null) {
+                    coverID = cover;
+                }
+
+            });
+
+            if (coverID !== null) {
+
+                let coverURL =
+                    "https://covers.openlibrary.org/b/id/" +
+                    coverID +
+                    "-M.jpg";
+
+                $("#cover-container").html(
+                    '<img src="' +
+                    coverURL +
+                    '" alt="Cover of ' +
+                    book.title +
+                    '">'
+                );
+
+            } else {
+
+                $("#cover-container").html(
+                    '<p class="not-available">Cover image not available</p>'
+                );
+
+            }
+
+        } else {
+
+            $("#cover-container").html(
+                '<p class="not-available">Cover image not available</p>'
+            );
+
+        }
+
+        /* Open Library book link */
+        if (book.key) {
+
+            let bookURL =
+                "https://openlibrary.org" + book.key;
+
+            $("#book-link").html(
+                '<a href="' +
+                bookURL +
+                '" target="_blank">View Book Edition on Open Library</a>'
+            );
+
+        } else {
+
+            $("#book-link").text("Not available");
+
+        }
+
+        /* Open Library work link */
+        if (book.works && book.works.length > 0 && book.works[0].key) {
+
+            let workURL =
+                "https://openlibrary.org" +
+                book.works[0].key;
+
+            $("#work-link").html(
+                '<a href="' +
+                workURL +
+                '" target="_blank">View Work on Open Library</a>'
+            );
+
+        } else {
+
+            $("#work-link").text("Not available");
+
+        }
+
+    }).fail(function () {
+
+        $(".book-container").html(
+            "<h2>Unable to load the book information.</h2>" +
+            "<p>Please make sure that openlibrary-book.json " +
+            "is in the correct project folder.</p>"
+        );
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
