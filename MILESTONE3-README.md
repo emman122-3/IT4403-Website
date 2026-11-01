@@ -2,91 +2,94 @@
 
 Emmanuel Osime | IT 4403 | W01 (85564) | Fall 2026
 
-## Files
+## Overview
 
-- `milestone3/index.html`: the single application UI.
-- `milestone3/style.css`: independent Milestone 3 styling.
-- `milestone3/js/app.js`: jQuery AJAX requests, rendering, local pagination, and states.
-- `milestone3/vendor/jquery-3.7.1.min.js`: local jQuery distribution, with license header.
-- Root `index.html` and `projects.html`: links to Milestone 3.
+This application combines book search, pagination, selected-book details, and a predefined science fiction collection on one webpage. It uses HTML, CSS, JavaScript, and jQuery AJAX to retrieve live information from Open Library without full-page reloads.
 
-Milestone 2's eight files are byte-for-byte unchanged from the supplied project ZIP.
-Only jQuery is used as an application library. There is no build step.
+Milestone 3 has its own folder and stylesheet. Milestone 2 remains unchanged.
 
-## Run
+## Project Files
 
-From this project folder run `python3 -m http.server 8000`, then open
-`http://localhost:8000/milestone3/`. Internet access is required for live books
-and covers. Search, pagination, and details all update the existing document.
-Section navigation uses anchors; only the external Open Library link opens a tab.
+- `milestone3/index.html`: the single-page interface.
+- `milestone3/style.css`: application styling and responsive layouts.
+- `milestone3/js/app.js`: API requests, search, pagination, details, and application states.
+- `milestone3/vendor/jquery-3.7.1.min.js`: jQuery library.
+- Root `index.html` and `projects.html`: navigation links to Milestone 3.
 
-## Publish source to GitHub
+Only jQuery is used as an application library. No build step is required.
 
-Repository: https://github.com/emman122-3/IT4403-Website
+## Running Locally
 
-Before uploading, compare the ZIP's root homepage with the current repository if
-it has changed since the earlier milestone. Add the new milestone3 folder and
-merge the Milestone 3 links into index.html and projects.html. Do not replace or
-delete the existing milestone2 folder. Keep the repository public through ten
-days after the submission deadline.
+From the project folder, run:
 
-## Publish with Azure Static Web Apps (portal, no VS Code)
+```bash
+python3 -m http.server 8000
+```
 
-1. Sign into https://portal.azure.com using an account with a subscription.
-2. Create a Static Web App. Choose an appropriate resource group and the Free
-   hosting plan if available for the account. Select GitHub as the deployment source.
-3. Authorize the GitHub connection, select IT4403-Website and its submission branch.
-4. Choose Custom / No Framework. Deploy the whole course site: app location `/`,
-   no API location, and empty output location. These files do not need a build.
-5. Let Azure generate its GitHub Actions deployment workflow. Check that the
-   workflow finishes successfully. Do not add a second competing workflow.
-6. Open Azure's generated HTTPS URL, then its `/milestone3/` path. Test all
-   required interactions at that address. Verify the root homepage links to it.
-7. Put that exact direct Milestone 3 URL on the first page of the report and
-   capture Azure screenshots if required by your instructor. The included report
-   is a draft until the actual Azure URL and GitHub submission are verified.
+Open `http://localhost:8000/milestone3/` in a browser. Internet access is required for book data and cover images.
 
-No Azure resource or public GitHub commit was created from this workspace.
+## Book Search and Pagination
 
-## Behavior and request handling
+The search form accepts a title or keywords and validates the input before sending a request. Search requests use jQuery AJAX and retrieve up to 50 results. Each result displays a selectable title and a cover image when available.
 
-Search trims and validates input, requests only key/title/author_name/cover_i,
-and retrieves at most 50 results. Local views show ten records each, including a
-short final view. New searches reset to page one. Details use Work IDs and are
-loaded only on selection; completed and pending requests are reused. A selection
-counter prevents an older response from replacing the latest chosen book.
-Requests are serialized with a 1.1-second gap after completion and a 20-second
-timeout. Search controls are restored after success or failure. Collection retry
-is offered for unavailable or empty collection responses.
+Results appear in groups of ten. The application provides only the required number of views and displays the current page. Changing views preserves the search term. A new search replaces previous results and returns to page one.
 
-API text is inserted as text, not HTML. Description strings and value objects
-are supported. Missing authors, descriptions, subjects, covers, and Work IDs
-have explicit messages; failed cover loads also show a placeholder. Subjects
-are limited to ten. Work covers use covers[], with a search/subject cover fallback.
-The science_fiction subject supplies up to ten collection items independently
-from keyword searches. Authors reuse names from the search or subject response;
-no per-author request is needed.
+## Selected-Book Details
+
+Selecting a book requests its Work record and updates the shared details section. The current search results and pagination view remain available.
+
+Details include:
+
+- Title and Open Library Work ID.
+- Author names when available.
+- Description when available.
+- Up to ten subjects.
+- Cover image when available.
+- A link to the book's Open Library page.
+
+Descriptions returned as strings or objects containing a `value` property are supported. Author names are reused from search or collection responses. Previously retrieved details are cached, and older responses cannot replace a more recent selection.
+
+## Science Fiction Collection
+
+The collection retrieves up to ten books from the Open Library `science_fiction` subject. Collection cards use the same layout as search results. Selecting a collection title updates the same details section. The collection remains independent of keyword searches.
+
+## Loading, Errors, and Missing Information
+
+The application displays messages for invalid input, loading, no matching results, request failures, and empty or unavailable collections. Missing authors, descriptions, subjects, covers, and Work IDs receive fallback messages. Failed cover-image loads display a placeholder.
+
+Search controls are disabled during a search and restored when the request finishes. Data requests use HTTPS, run sequentially with a 1.1-second gap after completion, and have a 20-second timeout. Book details load only when selected.
 
 ## Verification
 
-Browser checks with live Open Library data confirmed:
-- Empty search validation and a no-match search.
-- `tolkien`: 50 accessible records, ten in the first view and five view buttons.
-- A two-result search shows only Page 1 of 1 and resets the view.
-- Switching to page two preserves the query and displays records 11-20.
-- Selecting Tolkien displays its Work ID, authors, cover, ten subjects, external
-  link, and missing-description fallback while preserving page two.
-- Science Fiction Collection loads ten items with the same card layout.
-- Selecting The Time Machine from the collection replaces the shared details.
+Browser checks using live Open Library data confirmed:
 
-JavaScript syntax was checked with `node --check milestone3/js/app.js`.
-Additional manual checks after deployment: a query with
-11-49 results and a short final view, slow/offline API requests, unavailable
-covers, string and object descriptions, and rapid changes of selected books.
-Do not describe these additional checks as completed until you perform them.
+- Empty-input validation and a no-match message.
+- A `tolkien` search with 50 accessible results and five views.
+- Ten results per view and a visible current-page indicator.
+- A two-result search with only Page 1 of 1.
+- Preservation of the query and page when displaying book details.
+- A missing-description fallback in a selected Work record.
+- Ten collection items and selection from the collection.
 
-API references:
-https://openlibrary.org/dev/docs/api/search
-https://openlibrary.org/dev/docs/api/subjects
-https://openlibrary.org/dev/docs/api/covers
-https://openlibrary.org/developers/api
+JavaScript syntax was checked using:
+
+```bash
+node --check milestone3/js/app.js
+```
+
+Additional checks after deployment include a shorter final view for 11-49 results, unavailable covers, failed requests, both description formats, and rapid changes of selected books.
+
+## Hosting and Repository
+
+Repository: https://github.com/emman122-3/IT4403-Website
+
+The application is prepared for Azure Static Web Apps. For deployment of the complete course website, use `/` as the app location, no API location, and an empty output location. The application is accessed through the deployed site's `/milestone3/` path.
+
+GitHub publication of this version and Azure deployment are pending verification.
+
+## API References
+
+- [Open Library Search API](https://openlibrary.org/dev/docs/api/search)
+- [Open Library Subjects API](https://openlibrary.org/dev/docs/api/subjects)
+- [Open Library Covers API](https://openlibrary.org/dev/docs/api/covers)
+- [Open Library APIs](https://openlibrary.org/developers/api)
