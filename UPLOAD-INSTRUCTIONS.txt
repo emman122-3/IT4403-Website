@@ -1,0 +1,17 @@
+OPEN LIBRARY HOMEPAGE — MILESTONES 1 AND 2
+
+This version changes the ROOT homepage to the navy-and-white Open Library layout you requested. It adds a Milestone 2 section near the top and keeps the original Milestone 1 sections and data pages below.
+
+1. Unzip this download.
+2. Open the IT4403-Website folder.
+3. In YOUR repository emman122-3/IT4403-Website, choose Add file > Upload files.
+4. Upload the CONTENTS of the folder, keeping milestone1/ and milestone2/ intact. Do not upload the enclosing folder or the ZIP.
+5. Commit the changes and wait for GitHub Pages deployment.
+
+Homepage after deployment:
+https://emman122-3.github.io/IT4403-Website/
+
+Milestone 2 after deployment:
+https://emman122-3.github.io/IT4403-Website/milestone2/
+
+The former course homepage is preserved as course-home.html. Existing labs and exercises remain included. Milestone 2 retains its separate folder and stylesheet. No changes have been published automatically.

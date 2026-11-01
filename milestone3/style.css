@@ -1,0 +1,55 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: #f4f6f8; color: #283442; font-family: Arial, Helvetica, sans-serif; line-height: 1.6; }
+header { padding: 30px 20px; text-align: center; background: #243447; color: #fff; }
+header h1 { margin: 0; font-size: 40px; line-height: 1.25; }
+header p { margin: 8px 0; }
+.eyebrow { font-size: 11px; font-weight: bold; letter-spacing: 1.8px; color: #47647c; margin: 0 0 8px; }
+header .eyebrow { color: #c1d9eb; }
+.student, .hint, footer { font-size: 14px; }
+body > nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 30px; padding: 14px; background: #1b2838; }
+body > nav a { color: #fff; font-weight: bold; text-decoration: none; }
+a { color: #155f96; overflow-wrap: anywhere; }
+a:hover { text-decoration: underline; }
+main { max-width: 1150px; margin: 28px auto; padding: 0 20px; }
+.panel { background: #fff; padding: 26px; margin-bottom: 24px; border: 1px solid #dce3e9; border-radius: 10px; scroll-margin-top: 20px; }
+h2 { margin: 0 0 16px; font-size: 25px; line-height: 1.3; }
+h3 { margin: 24px 0 14px; font-size: 18px; }
+label { font-weight: bold; }
+.search-row { display: flex; gap: 10px; margin-top: 8px; }
+input, button { font: inherit; border-radius: 5px; padding: 10px 16px; }
+input { flex: 1; min-width: 0; color: #283442; background: #fff; border: 1px solid #8998a7; }
+button { cursor: pointer; color: white; background: #1769aa; border: 1px solid transparent; }
+button:hover { background: #124f80; }
+button:disabled { opacity: .55; cursor: default; }
+:focus-visible { outline: 3px solid #b86500; outline-offset: 3px; }
+.hint { color: #536273; margin: 8px 0; }
+.status { padding: 10px 12px; border-left: 3px solid #97b9d1; background: #f0f5f9; margin: 16px 0; }
+.status.error { border-left-color: #ac332a; color: #8c271f; background: #fff1ef; }
+.book-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.book-card { display: flex; align-items: center; gap: 16px; border: 1px solid #dce3e9; border-radius: 7px; padding: 14px; min-width: 0; background: #fff; }
+.book-card h4 { margin: 0 0 6px; font-size: 16px; line-height: 1.35; }
+.book-card .book-select { background: none; border: 0; color: #155f96; padding: 0; text-align: left; font-weight: bold; border-radius: 0; }
+.book-select:hover { text-decoration: underline; }
+.book-card p { color: #536273; margin: 0; font-size: 13px; }
+.cover { width: 65px; height: 95px; flex: 0 0 65px; background: #edf1f5; border-radius: 3px; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px; color: #536273; overflow: hidden; }
+.cover img { width: 100%; height: 100%; object-fit: contain; }
+#pagination { background: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 20px 0 0; }
+#pagination button { padding: 6px 12px; background: #eef3f7; color: #243447; border-color: #cbd6df; }
+#pagination button[aria-current="page"] { background: #243447; color: #fff; }
+.page-indicator { font-size: 14px; font-weight: bold; margin-right: 10px; }
+.detail-layout { display: grid; grid-template-columns: 150px minmax(0,1fr); gap: 26px; }
+.detail-layout .cover { width: 150px; height: 225px; }
+.detail-layout h3 { margin-top: 0; font-size: 24px; }
+.detail-layout h4 { margin-bottom: 6px; }
+.description { white-space: pre-wrap; overflow-wrap: anywhere; }
+.subjects { display: flex; flex-wrap: wrap; list-style: none; gap: 7px; padding: 0; }
+.subjects li { font-size: 12px; background: #edf3f8; border-radius: 4px; padding: 4px 8px; }
+.section-top { display: flex; flex-wrap: wrap; align-items: start; justify-content: space-between; gap: 10px; }
+footer { color: #536273; text-align: center; padding: 8px 20px 30px; }
+footer p { margin: 5px 0; }
+.skip-link { position: absolute; top: -100px; background: #fff; padding: 8px; }
+.skip-link:focus { top: 0; }
+[hidden] { display: none !important; }
+@media (max-width: 620px) { .book-grid, .detail-layout { grid-template-columns: 1fr; } main { padding: 0 12px; } .panel { padding: 18px; } .search-row { flex-wrap: wrap; } input { flex-basis: 100%; } header h1 { font-size: 32px; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
