@@ -1,477 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>IT 4403 - Open Library Project</title>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #243447;
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
-
-        header h1 {
-            margin: 0 0 12px;
-            font-size: 36px;
-        }
-
-        header p {
-            margin: 5px 0;
-            font-size: 18px;
-        }
-
-        nav {
-            background-color: #1b2838;
-            text-align: center;
-            padding: 15px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 18px;
-            font-weight: bold;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 35px auto;
-            padding: 0 20px;
-        }
-
-        .welcome {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .welcome h2 {
-            margin-top: 0;
-            color: #243447;
-        }
-
-        .section {
-            background-color: white;
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-
-        .section h2 {
-            color: #243447;
-            border-bottom: 2px solid #243447;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .lab-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .lab-list li {
-            margin: 12px 0;
-        }
-
-        .lab-list a {
-            color: #1769aa;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .lab-list a:hover {
-            text-decoration: underline;
-        }
-
-        .milestone-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-
-        .milestone-card {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 25px;
-            background-color: #fafafa;
-        }
-
-        .milestone-card h3 {
-            color: #243447;
-            margin-top: 0;
-        }
-
-        .button {
-            display: inline-block;
-            background-color: #243447;
-            color: white;
-            padding: 11px 18px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .button:hover {
-            background-color: #1769aa;
-        }
-
-        .course-link {
-            color: #1769aa;
-            font-weight: bold;
-        }
-
-        footer {
-            background-color: #243447;
-            color: white;
-            text-align: center;
-            padding: 25px 20px;
-            margin-top: 40px;
-        }
-
-        footer p {
-            margin: 5px 0;
-        }
-
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 28px;
-            }
-
-            header p {
-                font-size: 16px;
-            }
-
-            nav a {
-                display: block;
-                margin: 9px 0;
-            }
-
-            main {
-                padding: 0 12px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Open Library | Milestone 4</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="vendor/jquery-3.7.1.min.js" defer></script>
+  <script src="vendor/mustache-4.2.0.min.js" defer></script>
+  <script src="js/app.js" defer></script>
 </head>
-
 <body>
-
-    <!-- HEADER -->
-    <header>
-
-        <h1>IT 4403 - Open Library Project</h1>
-
-        <p>Milestones 1, 2, and 3: Open Library</p>
-
-        <p><strong>Emmanuel Osime</strong></p>
-
-    </header>
-
-
-    <!-- NAVIGATION -->
-    <nav>
-
-        <a href="index.html">Home</a>
-
-        <a href="book.html">Single Book</a>
-
-        <a href="search.html">Search Results</a>
-
-            <a href="milestone2/index.html">Milestone 2</a>
-            <a href="milestone3/index.html">Milestone 3</a>
-    </nav>
-
-
-    <!-- MAIN CONTENT -->
-    <main>
-
-        <!-- PROJECT INTRODUCTION -->
-        <section class="welcome">
-
-            <h2>Project Homepage</h2>
-
-            <p>
-                Welcome to my IT 4403 Open Library project. This project
-                demonstrates the use of JSON data, jQuery, JavaScript,
-                HTML, and embedded CSS to create webpages that display
-                information retrieved from Open Library data.
-            </p>
-
-            <p>
-                Milestone 1 focuses on working with two supplied JSON
-                files. The first file contains information about a
-                single book, while the second file contains multiple
-                search results for the search phrase "modern web".
-            </p>
-
-            <p>
-                The project demonstrates how webpages can read structured
-                JSON data, process arrays and nested objects, handle
-                missing information, display book covers, and create
-                links to Open Library records.
-            </p>
-
-        </section>
-
-
-        <section class="section" id="milestone2">
-            <h2>Individual Project — Milestone 2</h2>
-            <p>Milestone 2 continues the Open Library project using live API data. Search for books, browse up to 60 results using the page dropdown, and select a title to view its details.</p>
-            <div class="milestone-container">
-                <div class="milestone-card">
-                    <h3>Live Book Search and Details</h3>
-                    <p>Search by title, author, or keyword. View book covers and open a details page with a description, up to ten subjects, the Work ID, and an Open Library link.</p>
-                    <a class="button" href="milestone2/index.html">Open Milestone 2</a>
-                </div>
-                <div class="milestone-card">
-                    <h3>My Bookshelf</h3>
-                    <p>Explore four selected books loaded directly from Open Library. Select a title to view its detailed information.</p>
-                    <a class="button" href="milestone2/bookshelf.html">View My Bookshelf</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="milestone3">
-            <h2>Individual Project - Milestone 3</h2>
-            <p>A single-page Open Library application using jQuery AJAX. Search up to 50 books, browse ten results per view, read selected-book details, and explore a science fiction collection.</p>
-            <a class="button" href="milestone3/index.html">Open Milestone 3</a>
-        </section>
-
-        <!-- COURSE INFORMATION -->
-        <section class="section">
-
-            <h2>Course Information</h2>
-            <p><strong>College:</strong> College of Computing and Software Engineering</p>
-            <p><strong>Course Section:</strong> W01 (85564)</p>
-            <p><strong>Semester:</strong> Fall Semester 2026</p>
-            <p><strong>Syllabus:</strong> Fall Semester 2026 Syllabus</p>
-
-            <p>
-                <strong>Course:</strong> IT 4403: Adv Web and Mobile App
-            </p>
-
-            <p>
-                <strong>Project:</strong> Open Library Milestones 1, 2, and 3
-            </p>
-
-            <p>
-                <strong>Student:</strong> Emmanuel Osime
-            </p>
-
-            <p>
-                <strong>University:</strong> Kennesaw State University
-            </p>
-
-            <p>
-                <strong>Technology:</strong> HTML, CSS, JavaScript, jQuery and JSON
-            </p>
-
-            <p>
-                <strong>CCSE IT Website:</strong>
-                <a
-                    class="course-link"
-                    href="https://ccse.kennesaw.edu/it/"
-                    target="_blank"
-                    rel="noopener">
-                    KSU Information Technology
-                </a>
-            </p>
-
-        </section>
-
-
-        <!-- LAB WORK -->
-        <section class="section">
-
-            <h2>Lab Work</h2>
-
-            <p>
-                This section provides links to previous laboratory
-                assignments completed for the IT 4403 course.
-            </p>
-
-            <ul class="lab-list">
-
-                <li>
-                    Previous Lab Work
-                </li>
-
-                <li>
-                    Previous Lab 1
-                </li>
-
-                <li>
-                    Previous Lab 2
-                </li>
-
-                <li>
-                    Previous Lab 3
-                </li>
-
-            </ul>
-
-            <p>
-                Additional laboratory links can be added as the project
-                develops.
-            </p>
-
-        </section>
-
-
-        <!-- MILESTONE -->
-        <section class="section">
-
-            <h2>Individual Project — Milestone 1</h2>
-
-            <p>
-                Milestone 1 demonstrates how Open Library JSON data can
-                be processed and presented through webpages. The
-                milestone contains a single-book webpage and a
-                search-results webpage.
-            </p>
-
-
-            <div class="milestone-container">
-
-                <!-- SINGLE BOOK -->
-                <div class="milestone-card">
-
-                    <h3>Single Book</h3>
-
-                    <p>
-                        This webpage reads the
-                        <strong>openlibrary-book.json</strong> file and
-                        displays information about the book
-                        <em>Fantastic Mr. Fox</em>.
-                    </p>
-
-                    <p>
-                        The page displays the book title, author
-                        reference, publisher, publication date, page
-                        count, ISBNs, cover image, first sentence, and
-                        Open Library links.
-                    </p>
-
-                    <a
-                        class="button"
-                        href="book.html">
-                        View Single Book
-                    </a>
-
-                </div>
-
-
-                <!-- SEARCH RESULTS -->
-                <div class="milestone-card">
-
-                    <h3>Search Results</h3>
-
-                    <p>
-                        This webpage reads the
-                        <strong>openlibrary-search.json</strong> file
-                        and loops through the <strong>docs</strong>
-                        array to display the available search records.
-                    </p>
-
-                    <p>
-                        Each book record displays information such as
-                        title, author, publication year, edition count,
-                        language, cover image, and Open Library link.
-                    </p>
-
-                    <a
-                        class="button"
-                        href="search.html">
-                        View Search Results
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="section">
-            <h2>Other Course Work</h2>
-            <p><a href="course-home.html">Course Website</a> &nbsp;|&nbsp; <a href="labs.html">Labs</a> &nbsp;|&nbsp; <a href="exercises.html">Exercises</a></p>
-        </section>
-
-        <!-- PROJECT FILES -->
-        <section class="section">
-
-            <h2>Project Files</h2>
-
-            <p>
-                The Milestone 1 project consists of the following files:
-            </p>
-
-            <ul>
-
-                <li>
-                    <strong>index.html</strong> - Project homepage
-                </li>
-
-                <li>
-                    <strong>book.html</strong> - Single-book webpage
-                </li>
-
-                <li>
-                    <strong>search.html</strong> - Search-results webpage
-                </li>
-
-                <li>
-                    <strong>openlibrary-book.json</strong> - Single-book JSON data
-                </li>
-
-                <li>
-                    <strong>openlibrary-search.json</strong> - Search-results JSON data
-                </li>
-
-            </ul>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <p>
-            IT 4403 - Open Library Project
-        </p>
-
-        <p>
-            Kennesaw State University
-        </p>
-
-    </footer>
-
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <span class="brand">Open Library</span>
+      <nav class="views" aria-label="Library sections">
+        <button type="button" data-section="search" aria-pressed="true" aria-controls="search">Search Results</button>
+        <button type="button" data-section="collection" aria-pressed="false" aria-controls="collection">Science Fiction</button>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="shell">
+    <div class="hero">
+      <h1>Explore the catalog</h1>
+      <form id="search-form" novalidate>
+        <label for="search-input">Search by title, author, or keyword</label>
+        <div class="search-row">
+          <input id="search-input" name="q" type="search" maxlength="200" placeholder="Try The Hobbit" aria-describedby="search-status">
+          <button id="search-button" class="primary" type="submit">Search</button>
+        </div>
+      </form>
+    </div>
+    <div class="catalog">
+      <section id="search" class="browsing" aria-labelledby="search-heading">
+        <div class="section-top">
+          <h2 id="search-heading">Search Results</h2>
+          <div class="layout-picker" role="group" aria-label="Search results layout">
+            <button type="button" data-layout="grid" aria-pressed="true">Grid View</button>
+            <button type="button" data-layout="list" aria-pressed="false">List View</button>
+          </div>
+        </div>
+        <p id="search-status" class="status" role="status">Enter a title, author, or keyword to begin.</p>
+        <nav id="pagination" aria-label="Search result pages" hidden></nav>
+        <div id="results" class="books" data-layout="grid" aria-busy="false"></div>
+      </section>
+      <section id="collection" class="browsing" aria-labelledby="collection-heading" hidden>
+        <div class="section-top">
+          <h2 id="collection-heading">Science Fiction Collection</h2>
+          <div class="layout-picker" role="group" aria-label="Collection layout">
+            <button type="button" data-layout="grid" aria-pressed="true">Grid View</button>
+            <button type="button" data-layout="list" aria-pressed="false">List View</button>
+          </div>
+        </div>
+        <p id="collection-status" class="status" role="status"></p>
+        <button id="collection-retry" type="button" hidden>Retry collection</button>
+        <div id="collection-books" class="books" data-layout="grid" aria-busy="false"></div>
+      </section>
+      <section id="details" aria-labelledby="details-heading" tabindex="-1">
+        <div class="section-top">
+          <h2 id="details-heading">Book Details</h2>
+          <button id="back-to-books" type="button" hidden>Back to books</button>
+        </div>
+        <p id="details-status" class="status" role="status">Select a title to see its description, subjects, and publication information.</p>
+        <div id="book-details" aria-busy="false"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="shell">
+    <span>Emmanuel Osime · IT 4403 · Milestone 4</span>
+    <a href="https://openlibrary.org" target="_blank" rel="noopener noreferrer">Book data from Open Library</a>
+  </footer>
+  <noscript>This application requires JavaScript to retrieve and display books.</noscript>
+
+  <script type="text/x-mustache-template" id="cover-template">
+    <div class="cover">
+      {{#coverUrl}}<img src="{{coverUrl}}" alt="Cover of {{title}}" loading="lazy">{{/coverUrl}}
+      <span {{#coverUrl}}hidden{{/coverUrl}}>Cover unavailable</span>
+    </div>
+  </script>
+  <script type="text/x-mustache-template" id="book-template">
+    {{#books}}
+    <article class="book-card">
+      {{> cover}}
+      <div class="book-summary">
+        <h3>{{#slot}}<button type="button" class="book-select" data-slot="{{slot}}">{{title}}</button>{{/slot}}{{^slot}}{{title}}{{/slot}}</h3>
+        <p>{{authorText}}</p>
+        {{#year}}<p class="book-year">{{year}}</p>{{/year}}
+        {{^slot}}<p>Work ID unavailable.</p>{{/slot}}
+      </div>
+    </article>
+    {{/books}}
+  </script>
+  <script type="text/x-mustache-template" id="detail-template">
+    <div class="detail-layout">
+      {{> cover}}
+      <div>
+        <h3>{{title}}</h3>
+        <p class="detail-author">{{authorText}}</p>
+        <dl class="metadata">
+          <dt>Work ID</dt><dd>{{workId}}</dd>
+          {{#published}}<dt>First published</dt><dd>{{published}}</dd>{{/published}}
+          {{#language}}<dt>Languages</dt><dd>{{language}}</dd>{{/language}}
+        </dl>
+      </div>
+    </div>
+    <h4>Description</h4>
+    <p class="description">{{description}}</p>
+    <h4>Subjects</h4>
+    {{#hasSubjects}}<ul class="subjects">{{#subjects}}<li>{{.}}</li>{{/subjects}}</ul>{{/hasSubjects}}
+    {{^hasSubjects}}<p>No subjects are available for this book.</p>{{/hasSubjects}}
+    <a class="record-link" href="{{recordUrl}}" target="_blank" rel="noopener noreferrer">View original Open Library record ↗</a>
+  </script>
 </body>
 </html>
